@@ -21,6 +21,7 @@ btn.forEach(btn => {
 });
 
 function checkWinner() {
+    let draw = true;
     for (const pattern of patterns) {
         let first = btn[pattern[0]].innerText;
         let second = btn[pattern[1]].innerText;
@@ -38,6 +39,16 @@ function checkWinner() {
                 }
             }
         }
+    }
+    btn.forEach(button => {
+        if(button.innerText === ""){
+            draw = false;
+        }
+    });
+
+    if(draw){
+        alert("It's a draw!");
+        reset();
     }
 }
 
